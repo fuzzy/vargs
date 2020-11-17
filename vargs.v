@@ -11,7 +11,7 @@ pub struct Args {
     orig []string
     start int
 pub mut:
-    command string = ''
+    command string 
     options map[string]string = map[string]string
     aliases map[string]string = map[string]string
     unknown []string = []string{}
@@ -46,7 +46,7 @@ pub fn new(a []string, start_at int) Args {
     return Args{ orig: a, start: start_at }
 }
 
-pub fn (mut v Args) parse() Args {
+pub fn (mut v Args) parse() &Args {
     args := v.orig[v.start..v.orig.len]
 
     for i, curr in args {
